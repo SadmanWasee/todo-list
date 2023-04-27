@@ -1,0 +1,23 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "This will be a very simple to-do list that will show the month and day and will allow us to add new task, and check out completed task.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SadmanWasee/todo-list.git"
+  },
+  "author": "Sadman Wasee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SadmanWasee/todo-list/issues"
+  },
+  "homepage": "https://github.com/SadmanWasee/todo-list#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
