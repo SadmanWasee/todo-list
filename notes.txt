@@ -1,0 +1,18 @@
+=> Why we need template engine ? 
+
+Through res.send we can only send 1 html as it is counted as the final sending message. 
+
+res.send();
+
+So we can use res.write('') function to send multiple html tags. Once we finish adding all the tags we will put res.send() to send the final result.But for that we have to type res.write() again and again which causes a lot of difficulties to add an entire html page. 
+
+res.write('<h1>It is weekend</h1>')
+res.write('<p>Hello world</p>')
+
+res.send();
+
+For this reason we can use res.sendFile(__dirname+"/filename.html)to send the html file in one go. But still there is a problem, we would need to create too many html files to send response depending on the users input/ condition.
+
+res.sendFile(__dirname+"/index.html");
+
+That's why we need a template engine like pug or EJs to render the html file and serve them accordingly
