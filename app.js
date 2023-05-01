@@ -1,48 +1,37 @@
 const express = require('express');
-const bodyparser = require('body-parser');
-const app = express();
-const port = 80;
+const bodyparser = require('body-parser'); // used to parse through the body our webpage
+const app = express(); //creating an express app
+const port = 80; // assigning the port
 
 app.set("view engine", "ejs");
+app.use(bodyparser.urlencoded({extended: true})) // using the bodyparser
 
+let items = [];
 app.get('/', (req, res) => {
 
     let today = new Date();
     let currentday = today.getDay(); 
-    let day = "";
+    let options = {
+        weekday : "long",
+        day : "numeric",
+        month: "long",
+        year: "numeric"
+    };
 
-    if(currentday == 0)
-    {
-        
-        day = "Sunday";
-        
-    }
-    else if(currentday == 1){
-        
-        day = "Monday";
-    }
-    else if(currentday == 2){
-        
-        day = "Tuesday";
-    }
-    else if(currentday == 3){
-       
-        day = "Wednesday";
-    }
-    else if(currentday == 4){
-       
-        day = "Thursday";
-    }
-    else if(currentday == 5){
-       
-        day = "Friday";
-    }
-    else{
-        
-        day = "Saturday";
-    }
-    res.render("list", {kindofday: day});
+    let day = today.toLocaleDateString("en-US", options);
+
+    
+    res.render("list", { kindofday: day, items: items});
   
+});
+
+app.post('/', (req,res)=>{
+
+    let  item  = req.body.newItem 
+    items.push(item);
+
+    res.redirect('/');
+
 });
 
 app.listen(port, () => {

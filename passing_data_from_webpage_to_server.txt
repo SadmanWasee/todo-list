@@ -1,0 +1,4 @@
+In order to pass data we need post request and body perser. This is the code for body parser: 
+const bodyparser = require('body-parser');// used to parse through the body our webpage
+app.use(bodyparser.urlencoded({extended: true})) // using the bodyparser
+

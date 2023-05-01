@@ -45,3 +45,44 @@ We need to create a views folder and put our .ejs files in there that is where o
 Then we can render different pages using render method
 
 res.render('index', {foo: 'FOO'});
+
+=> Tags 
+input tag : <%= %>
+scriptlet tag : <% %> allows us to add programming logic in front end. 
+
+if(currentday == 0)
+    {
+        
+        day = "Sunday";
+        
+    }
+    else if(currentday == 1){
+        
+        day = "Monday";
+    }
+    else if(currentday == 2){
+        
+        day = "Tuesday";
+    }
+    else if(currentday == 3){
+       
+        day = "Wednesday";
+    }
+    else if(currentday == 4){
+       
+        day = "Thursday";
+    }
+    else if(currentday == 5){
+       
+        day = "Friday";
+    }
+    else{
+        
+        day = "Saturday";
+    }
+
+    <% if(kindofday == "Friday"){ %>
+        <h1 style="color: green;"><%=kindofday %></h1>
+    <% }else{ %>
+        <h1 style="color: blue;"><%=kindofday %></h1>
+    <% } %>
