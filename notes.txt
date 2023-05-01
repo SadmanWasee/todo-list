@@ -15,4 +15,33 @@ For this reason we can use res.sendFile(__dirname+"/filename.html)to send the ht
 
 res.sendFile(__dirname+"/index.html");
 
-That's why we need a template engine like pug or EJs to render the html file and serve them accordingly
+if(today.getDay() == 5)
+    {
+        
+        res.sendFile(__dirname+"/weekend.html");
+    }
+else{
+        res.sendFile(__dirname+"/weekday.html");
+    }
+
+
+That's why we need a template engine like pug or EJs to render the html file and serve them accordingly. 
+
+
+
+
+
+
+=>How to install and use EJs
+
+At first we have to install: ejs npm i ejs
+
+Then we have to set the view engine to ejs 
+
+app.set("view engine", "ejs");
+
+We need to create a views folder and put our .ejs files in there that is where our files that we want to render will appear
+
+Then we can render different pages using render method
+
+res.render('index', {foo: 'FOO'});

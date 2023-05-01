@@ -3,23 +3,45 @@ const bodyparser = require('body-parser');
 const app = express();
 const port = 80;
 
+app.set("view engine", "ejs");
+
 app.get('/', (req, res) => {
 
     let today = new Date();
+    let currentday = today.getDay(); 
+    let day = "";
 
-
-    if(today.getDay() == 5)
+    if(currentday == 0)
     {
-        res.write('<h1>It is weekend</h1>')
-        res.write('<p>Hello world</p>')
-
-        res.send();
+        
+        day = "Sunday";
+        
+    }
+    else if(currentday == 1){
+        
+        day = "Monday";
+    }
+    else if(currentday == 2){
+        
+        day = "Tuesday";
+    }
+    else if(currentday == 3){
+       
+        day = "Wednesday";
+    }
+    else if(currentday == 4){
+       
+        day = "Thursday";
+    }
+    else if(currentday == 5){
+       
+        day = "Friday";
     }
     else{
-        // 
-        res.sendFile(__dirname+"/index.html");
+        
+        day = "Saturday";
     }
-
+    res.render("list", {kindofday: day});
   
 });
 
