@@ -5,8 +5,10 @@ const port = 80; // assigning the port
 
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({extended: true})) // using the bodyparser
+app.use(express.static("public")) //express only serves the root folder and views folder so we need to create a separate public folder to serve our css. And for that we need to serve our public folder through app.js using this piece of code.
 
 let items = [];
+items = ["Buying food", "Cooking food", "Eating food"];
 app.get('/', (req, res) => {
 
     let today = new Date();
